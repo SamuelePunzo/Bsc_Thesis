@@ -1,0 +1,509 @@
+MODELLI SU DATASET FULL
+
+SVC:
+Iperparametri:  {'classifier__C': 128, 'classifier__gamma': 0.0078125, 'classifier__kernel': 'rbf'}
+Training accuracy:  0.9447526665483725
+Test accuracy:  0.95 
+
+              precision    recall  f1-score   support
+
+           0       0.96      0.94      0.95       275
+           1       0.94      0.96      0.95       245
+
+    accuracy                           0.95       520
+   macro avg       0.95      0.95      0.95       520
+weighted avg       0.95      0.95      0.95       520
+ 
+Random Forest:
+Iperparametri:  {'classifier__max_depth': 9, 'classifier__n_estimators': 200}
+Training accuracy:  0.9347134323061453
+Test accuracy:  0.9423076923076923 
+
+              precision    recall  f1-score   support
+
+           0       0.97      0.92      0.94       275
+           1       0.91      0.97      0.94       245
+
+    accuracy                           0.94       520
+   macro avg       0.94      0.94      0.94       520
+weighted avg       0.94      0.94      0.94       520
+ 
+Elastic Net:
+Iperparametri:  {'classifier__C': 0.5, 'classifier__l1_ratio': 1, 'classifier__penalty': 'elasticnet', 'classifier__solver': 'saga'}
+Training accuracy:  0.7061907296780425
+Test accuracy:  0.6865384615384615 
+
+              precision    recall  f1-score   support
+
+           0       0.68      0.78      0.72       275
+           1       0.70      0.58      0.64       245
+
+    accuracy                           0.69       520
+   macro avg       0.69      0.68      0.68       520
+weighted avg       0.69      0.69      0.68       520
+ 
+KNN:
+Iperparametri:  {'classifier__n_neighbors': 3, 'classifier__weights': 'uniform'}
+Training accuracy:  0.8920328857869521
+Test accuracy:  0.8826923076923077 
+
+              precision    recall  f1-score   support
+
+           0       0.93      0.84      0.88       275
+           1       0.84      0.93      0.88       245
+
+    accuracy                           0.88       520
+   macro avg       0.88      0.89      0.88       520
+weighted avg       0.89      0.88      0.88       520
+ 
+Hist Gradient Boosting:
+Iperparametri:  {'classifier__learning_rate': 0.1, 'classifier__max_depth': 9, 'classifier__max_iter': 200}
+Training accuracy:  0.9491433528518758
+Test accuracy:  0.9538461538461539 
+
+              precision    recall  f1-score   support
+
+           0       0.97      0.94      0.96       275
+           1       0.93      0.97      0.95       245
+
+    accuracy                           0.95       520
+   macro avg       0.95      0.95      0.95       520
+weighted avg       0.95      0.95      0.95       520
+ 
+Gradient Boosting:
+Iperparametri:  Pipeline(steps=[('Scaling', MinMaxScaler()),
+                ('classifier',
+                 GradientBoostingClassifier(max_depth=5, n_estimators=150))])
+Training accuracy:  1.0
+Test accuracy:  0.9442307692307692 
+
+              precision    recall  f1-score   support
+
+           0       0.97      0.93      0.95       275
+           1       0.92      0.96      0.94       245
+
+    accuracy                           0.94       520
+   macro avg       0.94      0.95      0.94       520
+weighted avg       0.95      0.94      0.94       520
+ 
+Naive Bayes:
+Iperparametri:  Pipeline(steps=[('Scaling', MinMaxScaler()), ('classifier', GaussianNB())])
+Training accuracy:  0.9152542372881356
+Test accuracy:  0.9403846153846154 
+
+              precision    recall  f1-score   support
+
+           0       0.99      0.90      0.94       275
+           1       0.90      0.99      0.94       245
+
+    accuracy                           0.94       520
+   macro avg       0.94      0.94      0.94       520
+weighted avg       0.94      0.94      0.94       520
+
+
+Ensemble model:
+Iperparametri:  VotingClassifier(estimators=[('svc',
+                              SVC(C=128, gamma=0.0078125, probability=True)),
+                             ('randomForest',
+                              RandomForestClassifier(max_depth=9,
+                                                     n_estimators=200)),
+                             ('knn', KNeighborsClassifier(n_neighbors=3)),
+                             ('HistGradientBoosting',
+                              HistGradientBoostingClassifier(max_depth=9,
+                                                             max_iter=200)),
+                             ('gradientBoosting',
+                              GradientBoostingClassifier(max_depth=5,
+                                                         n_estimators=150)),
+                             ('naiveBayes', GaussianNB())])
+Training accuracy:  1.0
+Test accuracy:  0.95
+              precision    recall  f1-score   support
+
+           0       0.97      0.93      0.95       275
+           1       0.93      0.97      0.95       245
+
+    accuracy                           0.95       520
+   macro avg       0.95      0.95      0.95       520
+weighted avg       0.95      0.95      0.95       520
+
+
+Ensemble weighted model:
+Iperparametri:  VotingClassifier(estimators=[('svc',
+                              SVC(C=128, gamma=0.0078125, probability=True)),
+                             ('randomForest',
+                              RandomForestClassifier(max_depth=9,
+                                                     n_estimators=200)),
+                             ('knn', KNeighborsClassifier(n_neighbors=3)),
+                             ('HistgradientBoosting',
+                              HistGradientBoostingClassifier(max_depth=9,
+                                                             max_iter=200)),
+                             ('gradientBoosting',
+                              GradientBoostingClassifier(max_depth=5,
+                                                         n_estimators=150)),
+                             ('naiveBayes', GaussianNB())],
+                 n_jobs=-1, voting='soft',
+                 weights=[0.16763129947696087, 0.16584999740567216,
+                          0.15827701483708267, 0.16841035676540542,
+                          0.17743405804759158, 0.16239727346728722])
+Training accuracy:  1.0
+Test accuracy:  0.9461538461538461
+              precision    recall  f1-score   support
+
+           0       0.97      0.92      0.95       275
+           1       0.92      0.97      0.94       245
+
+    accuracy                           0.95       520
+   macro avg       0.95      0.95      0.95       520
+weighted avg       0.95      0.95      0.95       520
+
+
+Manual ensemble model:
+Models: svc, randomForest, knn, HistgradientBoosting, gradientBoosting, naiveBayes
+Training accuracy:  1.0
+Test accuracy:  0.95
+              precision    recall  f1-score   support
+
+           0       0.98      0.92      0.95       275
+           1       0.92      0.98      0.95       245
+
+    accuracy                           0.95       520
+   macro avg       0.95      0.95      0.95       520
+weighted avg       0.95      0.95      0.95       520
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+MODELLI SU DATASETZEROES
+
+SVC:
+Iperparametri:  {'classifier__C': 8, 'classifier__gamma': 0.0078125, 'classifier__kernel': 'rbf', 'classifier__probability': True}
+Training accuracy:  0.9278011080223182
+Test accuracy:  0.9461538461538461 
+
+              precision    recall  f1-score   support
+
+           0       0.97      0.92      0.95       275
+           1       0.92      0.97      0.94       245
+
+    accuracy                           0.95       520
+   macro avg       0.95      0.95      0.95       520
+weighted avg       0.95      0.95      0.95       520
+ 
+Random Forest:
+Iperparametri:  {'classifier__max_depth': 12, 'classifier__n_estimators': 225}
+Training accuracy:  0.935338419983833
+Test accuracy:  0.9365384615384615 
+
+              precision    recall  f1-score   support
+
+           0       0.98      0.90      0.94       275
+           1       0.90      0.98      0.94       245
+
+    accuracy                           0.94       520
+   macro avg       0.94      0.94      0.94       520
+weighted avg       0.94      0.94      0.94       520
+ 
+Elastic Net:
+Iperparametri:  {'classifier__C': 0.5, 'classifier__l1_ratio': 1, 'classifier__penalty': 'elasticnet', 'classifier__solver': 'saga'}
+Training accuracy:  0.6296267818063525
+Test accuracy:  0.6403846153846153 
+
+              precision    recall  f1-score   support
+
+           0       0.61      0.87      0.72       275
+           1       0.72      0.38      0.50       245
+
+    accuracy                           0.64       520
+   macro avg       0.67      0.63      0.61       520
+weighted avg       0.66      0.64      0.62       520
+ 
+KNN:
+Iperparametri:  {'classifier__n_neighbors': 3, 'classifier__weights': 'uniform'}
+Training accuracy:  0.6691863330770292
+Test accuracy:  0.676923076923077 
+
+              precision    recall  f1-score   support
+
+           0       0.85      0.47      0.61       275
+           1       0.60      0.91      0.73       245
+
+    accuracy                           0.68       520
+   macro avg       0.73      0.69      0.67       520
+weighted avg       0.73      0.68      0.66       520
+ 
+Hist Gradient Boosting:
+Iperparametri:  {'classifier__learning_rate': 0.1, 'classifier__max_depth': 5, 'classifier__max_iter': 200}
+Training accuracy:  0.9510301453047061
+Test accuracy:  0.9557692307692308 
+
+              precision    recall  f1-score   support
+
+           0       0.98      0.93      0.96       275
+           1       0.93      0.98      0.95       245
+
+    accuracy                           0.96       520
+   macro avg       0.96      0.96      0.96       520
+weighted avg       0.96      0.96      0.96       520
+ 
+Gradient Boosting:
+Iperparametri:  {'classifier__learning_rate': 0.1, 'classifier__loss': 'log_loss', 'classifier__max_depth': 5, 'classifier__n_estimators': 150}
+Training accuracy:  0.9485242798840717
+Test accuracy:  0.95 
+
+              precision    recall  f1-score   support
+
+           0       0.97      0.93      0.95       275
+           1       0.93      0.97      0.95       245
+
+    accuracy                           0.95       520
+   macro avg       0.95      0.95      0.95       520
+weighted avg       0.95      0.95      0.95       520
+ 
+Naive Bayes:
+Iperparametri:  Pipeline(steps=[('Scaling', MinMaxScaler()), ('classifier', GaussianNB())])
+Training accuracy:  0.9183929692404269
+Test accuracy:  0.9403846153846154 
+
+              precision    recall  f1-score   support
+
+           0       0.99      0.89      0.94       275
+           1       0.89      0.99      0.94       245
+
+    accuracy                           0.94       520
+   macro avg       0.94      0.94      0.94       520
+weighted avg       0.95      0.94      0.94       520
+
+Ensemble model:
+Iperparametri:  VotingClassifier(estimators=[('svc',
+                              SVC(C=8, gamma=0.0078125, probability=True)),
+                             ('randomForest',
+                              RandomForestClassifier(max_depth=12,
+                                                     n_estimators=225)),
+                             ('HistGradientBoosting',
+                              HistGradientBoostingClassifier(max_depth=5,
+                                                             max_iter=200)),
+                             ('gradientBoosting',
+                              GradientBoostingClassifier(max_depth=5,
+                                                         n_estimators=150)),
+                             ('naiveBayes', GaussianNB())])
+Training accuracy:  0.9711236660389203
+Test accuracy:  0.9461538461538461
+              precision    recall  f1-score   support
+
+           0       0.99      0.91      0.95       275
+           1       0.91      0.99      0.95       245
+
+    accuracy                           0.95       520
+   macro avg       0.95      0.95      0.95       520
+weighted avg       0.95      0.95      0.95       520
+
+
+Ensemble weighted model:
+Iperparametri:  VotingClassifier(estimators=[('svc',
+                              SVC(C=8, gamma=0.0078125, probability=True)),
+                             ('randomForest',
+                              RandomForestClassifier(max_depth=12,
+                                                     n_estimators=225)),
+                             ('HistgradientBoosting',
+                              HistGradientBoostingClassifier(max_depth=5,
+                                                             max_iter=200)),
+                             ('gradientBoosting',
+                              GradientBoostingClassifier(max_depth=5,
+                                                         n_estimators=150)),
+                             ('naiveBayes', GaussianNB())],
+                 n_jobs=-1, voting='soft',
+                 weights=[0.1982020678948695, 0.19981223068107848,
+                          0.20316438490954755, 0.20262906790686078,
+                          0.19619224860764364])
+Training accuracy:  0.9912115505335845
+Test accuracy:  0.948076923076923
+              precision    recall  f1-score   support
+
+           0       0.98      0.92      0.95       275
+           1       0.91      0.98      0.95       245
+
+    accuracy                           0.95       520
+   macro avg       0.95      0.95      0.95       520
+weighted avg       0.95      0.95      0.95       520
+
+
+Manual ensemble model:
+Models: svc, randomForest, HistgradientBoosting, gradientBoosting, naiveBayes
+Training accuracy:  0.9887005649717514
+Test accuracy:  0.948076923076923
+              precision    recall  f1-score   support
+
+           0       0.98      0.92      0.95       275
+           1       0.91      0.98      0.95       245
+
+    accuracy                           0.95       520
+   macro avg       0.95      0.95      0.95       520
+weighted avg       0.95      0.95      0.95       520
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+MODELLI SU DATASET-136411
+
+SVC:
+Iperparametri:  {'classifier__C': 128, 'classifier__gamma': 0.0078125, 'classifier__kernel': 'rbf', 'classifier__probability': True}
+Training accuracy:  0.9783582089552239
+Test accuracy:  0.9525862068965517 
+
+              precision    recall  f1-score   support
+
+           0       0.97      0.95      0.96       287
+           1       0.92      0.96      0.94       177
+
+    accuracy                           0.95       464
+   macro avg       0.95      0.95      0.95       464
+weighted avg       0.95      0.95      0.95       464
+ 
+Random Forest:
+Iperparametri:  {'classifier__max_depth': 12, 'classifier__n_estimators': 225}
+Training accuracy:  0.9723880597014926
+Test accuracy:  0.9353448275862069 
+
+              precision    recall  f1-score   support
+
+           0       0.96      0.93      0.95       287
+           1       0.90      0.94      0.92       177
+
+    accuracy                           0.94       464
+   macro avg       0.93      0.94      0.93       464
+weighted avg       0.94      0.94      0.94       464
+ 
+Elastic Net:
+Iperparametri:  {'classifier__C': 0.5, 'classifier__l1_ratio': 1, 'classifier__penalty': 'elasticnet', 'classifier__solver': 'saga'}
+Training accuracy:  0.7283582089552239
+Test accuracy:  0.7672413793103449 
+
+              precision    recall  f1-score   support
+
+           0       0.77      0.89      0.83       287
+           1       0.76      0.57      0.65       177
+
+    accuracy                           0.77       464
+   macro avg       0.76      0.73      0.74       464
+weighted avg       0.77      0.77      0.76       464
+ 
+KNN:
+Iperparametri:  {'classifier__n_neighbors': 3, 'classifier__weights': 'uniform'}
+Training accuracy:  0.7970149253731342
+Test accuracy:  0.7521551724137931 
+
+              precision    recall  f1-score   support
+
+           0       0.74      0.92      0.82       287
+           1       0.78      0.49      0.60       177
+
+    accuracy                           0.75       464
+   macro avg       0.76      0.70      0.71       464
+weighted avg       0.76      0.75      0.74       464
+ 
+Hist Gradient Boosting:
+Iperparametri:  {'classifier__learning_rate': 0.1, 'classifier__max_depth': 9, 'classifier__max_iter': 100}
+Training accuracy:  0.9783582089552239
+Test accuracy:  0.9504310344827587 
+
+              precision    recall  f1-score   support
+
+           0       0.98      0.94      0.96       287
+           1       0.91      0.97      0.94       177
+
+    accuracy                           0.95       464
+   macro avg       0.94      0.95      0.95       464
+weighted avg       0.95      0.95      0.95       464
+
+Gradient Boosting:
+Iperparametri:  {'classifier__learning_rate': 0.1, 'classifier__loss': 'log_loss', 'classifier__max_depth': 3, 'classifier__n_estimators': 200}
+Training accuracy:  0.9753731343283581
+Test accuracy:  0.9418103448275862 
+
+              precision    recall  f1-score   support
+
+           0       0.96      0.95      0.95       287
+           1       0.92      0.93      0.92       177
+
+    accuracy                           0.94       464
+   macro avg       0.94      0.94      0.94       464
+weighted avg       0.94      0.94      0.94       464
+ 
+Naive Bayes:
+Iperparametri:  Pipeline(steps=[('Scaling', MinMaxScaler()), ('classifier', GaussianNB())])
+Training accuracy:  0.9238805970149254
+Test accuracy:  0.9051724137931034 
+
+              precision    recall  f1-score   support
+
+           0       0.87      1.00      0.93       287
+           1       0.99      0.76      0.86       177
+
+    accuracy                           0.91       464
+   macro avg       0.93      0.88      0.89       464
+weighted avg       0.92      0.91      0.90       464
+ 
+
+Ensemble model:
+Iperparametri:  VotingClassifier(estimators=[('svc',
+                              SVC(C=128, gamma=0.0078125, probability=True)),
+                             ('randomForest',
+                              RandomForestClassifier(max_depth=12,
+                                                     n_estimators=225)),
+                             ('HistGradientBoosting',
+                              HistGradientBoostingClassifier(max_depth=9)),
+                             ('gradientBoosting',
+                              GradientBoostingClassifier(n_estimators=200)),
+                             ('naiveBayes', GaussianNB())])
+Training accuracy:  1.0
+Test accuracy:  0.9461206896551724
+              precision    recall  f1-score   support
+
+           0       0.96      0.95      0.96       287
+           1       0.92      0.94      0.93       177
+
+    accuracy                           0.95       464
+   macro avg       0.94      0.94      0.94       464
+weighted avg       0.95      0.95      0.95       464
+
+
+Ensemble weighted model:
+Iperparametri:  VotingClassifier(estimators=[('svc',
+                              SVC(C=128, gamma=0.0078125, probability=True)),
+                             ('randomForest',
+                              RandomForestClassifier(max_depth=12,
+                                                     n_estimators=225)),
+                             ('HistgradientBoosting',
+                              HistGradientBoostingClassifier(max_depth=9)),
+                             ('gradientBoosting',
+                              GradientBoostingClassifier(n_estimators=200)),
+                             ('naiveBayes', GaussianNB())],
+                 n_jobs=-1, voting='soft',
+                 weights=[0.2026275115919629, 0.20139103554868626,
+                          0.2026275115919629, 0.20200927357032458,
+                          0.1913446676970634])
+Training accuracy:  1.0
+Test accuracy:  0.9482758620689655
+              precision    recall  f1-score   support
+
+           0       0.96      0.96      0.96       287
+           1       0.93      0.93      0.93       177
+
+    accuracy                           0.95       464
+   macro avg       0.95      0.95      0.95       464
+weighted avg       0.95      0.95      0.95       464
+
+
+Manual ensemble model:
+Models: svc, randomForest, HistgradientBoosting, gradientBoosting, naiveBayes
+Training accuracy:  1.0
+Test accuracy:  0.9461206896551724
+              precision    recall  f1-score   support
+
+           0       0.95      0.96      0.96       287
+           1       0.93      0.93      0.93       177
+
+    accuracy                           0.95       464
+   macro avg       0.94      0.94      0.94       464
+weighted avg       0.95      0.95      0.95       464
